@@ -34,12 +34,7 @@ void AKrazyKartsHud::DrawHUD()
 	const float HUDYRatio = Canvas->SizeY / 720.f;
 
 	bool bWantHUD = true;
-#if HMD_MODULE_INCLUDED
-	if (GEngine->HMDDevice.IsValid() == true)
-	{
-		bWantHUD = GEngine->HMDDevice->IsStereoEnabled();
-	}
-#endif // HMD_MODULE_INCLUDED
+
 	// We dont want the onscreen hud when using a HMD device	
 	if (bWantHUD == true)
 	{

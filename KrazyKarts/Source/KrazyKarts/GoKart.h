@@ -28,6 +28,10 @@ public:
 
 	
 private:
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Server_MoveForward(float Value);
+	
 	FVector GetAirResistance();
 	FVector GetRollingResistance();
 
@@ -55,7 +59,8 @@ private:
 	UPROPERTY(EditAnywhere)
 	float RollingResistanceCoefficient = 0.015;
 
-	void MoveForward(float Value);
+	//must create two functions to satisfy compiler:
+	// server_moveForward and Server_MoveForward_Validate
 
 	void MoveRight(float Value);
 
